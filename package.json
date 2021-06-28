@@ -1,0 +1,35 @@
+{
+  "name": "@flexicore/flexicore-ui-client",
+  "version": "3.1.10",
+  "description": "This is a typescript client for flexicore-ui",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Heniland/typescript-boilerplate.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Asaf Ben Natan",
+  "license": "MIT",
+  "devDependencies": {
+    "@angular/common": "^5.2.10",
+    "@angular/core": "^5.2.10",
+    "@angular/http": "^5.2.10",
+    "@angular/platform-browser": "^5.2.10",
+    "@types/jasmine": "^2.6.0",
+    "@types/node": "^8.0.33",
+    "jasmine": "^2.8.0",
+    "rxjs": "^5.5.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.3",
+    "zone.js": "^0.8.18"
+  },
+  "dependencies": {
+    "@flexicore/flexicore-client": "^2.0.8"
+  }
+}
