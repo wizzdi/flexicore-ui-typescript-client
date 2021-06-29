@@ -6,7 +6,8 @@
     "noImplicitAny": false,
     "strictNullChecks": false,
     "removeComments": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames":true
   },
   "exclude": [
     "source",
