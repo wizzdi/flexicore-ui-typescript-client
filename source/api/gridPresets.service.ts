@@ -6,7 +6,7 @@ import { CreateGridPreset } from "../model/createGridPreset";
 import { Observable } from "rxjs/Observable";
 import { GridPreset } from "../model/gridPreset";
 import { GridPresetFiltering } from "../model/gridPresetFiltering";
-import { UpdateGridPreset } from "../model/models";
+import { CreatePresetToPresets, PresetToPresets, PresetToPresetsFiltering, UpdateGridPreset, UpdatePresetToPresets } from "../model/models";
 import { CopyGridPreset } from "../model/copyGridPreset";
 
 @Injectable()
@@ -176,6 +176,111 @@ export class GridPresetsService {
                 reportProgress: reportProgress
             }
         ).map(o=>FlexiCoreDecycle.retrocycle(o));
+    }
+
+    public getAllPresetToPresets(body?: PresetToPresetsFiltering, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+        let headers = this.defaultHeaders;
+        if (authenticationKey !== undefined && authenticationKey !== null) {
+            headers = headers.set('authenticationKey', String(authenticationKey));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<PaginationResponse<PresetToPresets>>(`${this.basePath}/plugins/PresetToPresets/getAllPresetToPresets`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        ).map(o => FlexiCoreDecycle.retrocycle(o));
+    }
+
+    public createPresetToPresets(body?: CreatePresetToPresets, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+        let headers = this.defaultHeaders;
+        if (authenticationKey !== undefined && authenticationKey !== null) {
+            headers = headers.set('authenticationKey', String(authenticationKey));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<PresetToPresets>(`${this.basePath}/plugins/PresetToPresets/createPresetToPreset`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        ).map(o => FlexiCoreDecycle.retrocycle(o));
+    }
+
+    public updatePresetToPresets(body?: UpdatePresetToPresets, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+        let headers = this.defaultHeaders;
+        if (authenticationKey !== undefined && authenticationKey !== null) {
+            headers = headers.set('authenticationKey', String(authenticationKey));
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.put<PresetToPresets>(`${this.basePath}/plugins/PresetToPresets/updatePresetToPreset`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        ).map(o => FlexiCoreDecycle.retrocycle(o));
     }
 
 }
