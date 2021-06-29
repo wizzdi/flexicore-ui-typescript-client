@@ -1,6 +1,6 @@
 {
   "name": "@flexicore/flexicore-ui-client",
-  "version": "3.1.12",
+  "version": "3.1.13",
   "description": "This is a typescript client for flexicore-ui",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
