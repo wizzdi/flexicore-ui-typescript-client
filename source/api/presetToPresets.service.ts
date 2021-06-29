@@ -2,15 +2,11 @@ import { Injectable, Optional, Inject } from "@angular/core";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { BASE_PATH, PaginationResponse, FlexiCoreDecycle } from "@flexicore/flexicore-client";
-import { CreateGridPreset } from "../model/createGridPreset";
 import { Observable } from "rxjs/Observable";
-import { GridPreset } from "../model/gridPreset";
-import { GridPresetFiltering } from "../model/gridPresetFiltering";
-import { UpdateGridPreset } from "../model/models";
-import { CopyGridPreset } from "../model/copyGridPreset";
+import { PresetToPresetCreate, PresetToPreset, PresetToPresetFiltering, PresetToPresetUpdate } from "../model/models";
 
 @Injectable()
-export class GridPresetsService {
+export class PresetToPresetService {
 
     protected basePath = '/FlexiCore';
     public defaultHeaders = new HttpHeaders();
@@ -26,10 +22,7 @@ export class GridPresetsService {
         }
     }
 
-    public createGridPreset(body?: CreateGridPreset, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
-
-
-
+    public getAllPresetToPresets(body?: PresetToPresetFiltering, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
         let headers = this.defaultHeaders;
         if (authenticationKey !== undefined && authenticationKey !== null) {
             headers = headers.set('authenticationKey', String(authenticationKey));
@@ -53,7 +46,7 @@ export class GridPresetsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<GridPreset>(`${this.basePath}/plugins/GridPresets/createGridPreset`,
+        return this.httpClient.post<PaginationResponse<PresetToPreset>>(`${this.basePath}/plugins/PresetToPresets/getAllPresetToPresets`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -61,13 +54,10 @@ export class GridPresetsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).map(o => FlexiCoreDecycle.retrocycle(o));
     }
 
-    public copyGridPreset(body?: CopyGridPreset, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
-
-
-
+    public createPresetToPresets(body?: PresetToPresetCreate, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
         let headers = this.defaultHeaders;
         if (authenticationKey !== undefined && authenticationKey !== null) {
             headers = headers.set('authenticationKey', String(authenticationKey));
@@ -91,7 +81,7 @@ export class GridPresetsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<GridPreset>(`${this.basePath}/plugins/GridPresets/copyGridPreset`,
+        return this.httpClient.post<PresetToPreset>(`${this.basePath}/plugins/PresetToPresets/createPresetToPreset`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -99,13 +89,10 @@ export class GridPresetsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).map(o => FlexiCoreDecycle.retrocycle(o));
     }
 
-    public getAllGridPresets(body?: GridPresetFiltering, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
-
-
-
+    public updatePresetToPresets(body?: PresetToPresetUpdate, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
         let headers = this.defaultHeaders;
         if (authenticationKey !== undefined && authenticationKey !== null) {
             headers = headers.set('authenticationKey', String(authenticationKey));
@@ -129,7 +116,7 @@ export class GridPresetsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<PaginationResponse<GridPreset>>(`${this.basePath}/plugins/GridPresets/getAllGridPresets`,
+        return this.httpClient.put<PresetToPreset>(`${this.basePath}/plugins/PresetToPresets/updatePresetToPreset`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -137,45 +124,7 @@ export class GridPresetsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
-    }
-
-    public updateGridPreset(body?: UpdateGridPreset, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
-
-
-
-        let headers = this.defaultHeaders;
-        if (authenticationKey !== undefined && authenticationKey !== null) {
-            headers = headers.set('authenticationKey', String(authenticationKey));
-        }
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected != undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
-        return this.httpClient.put<GridPreset>(`${this.basePath}/plugins/GridPresets/updateGridPreset`,
-            body,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).map(o => FlexiCoreDecycle.retrocycle(o));
     }
 
 }

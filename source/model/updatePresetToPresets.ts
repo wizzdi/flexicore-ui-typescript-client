@@ -1,4 +1,4 @@
-import { CreatePresetToPresets } from './createPresetToPresets';
-export interface UpdatePresetToPresets extends CreatePresetToPresets {
+import { PresetToPresetCreate } from './createPresetToPresets';
+export interface PresetToPresetUpdate extends PresetToPresetCreate {
     id?: string;
 }

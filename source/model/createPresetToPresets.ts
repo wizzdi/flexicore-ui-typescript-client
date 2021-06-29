@@ -1,6 +1,6 @@
 import { BasicCreate } from "@flexicore/flexicore-client/dist/model/basicCreate";
 
-export interface CreatePresetToPresets extends BasicCreate {
+export interface PresetToPresetCreate extends BasicCreate {
     idForCreate?: string;
     parentPresetId?: string;
     childPresetId?: string;
