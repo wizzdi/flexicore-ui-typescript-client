@@ -1,8 +1,3 @@
-import { Baseclass, Category } from "@flexicore/flexicore-client";
-import { GridPreset } from "./gridPreset";
-import { UiField } from "./uiField";
-import { CreateUiField } from "./createUiField";
-
 /**
  * REST API for Flexicore filtered by your access rights
  * Flexicore REST API
@@ -16,8 +11,16 @@ import { CreateUiField } from "./createUiField";
  */
 
 
-export interface TableColumnCreate extends CreateUiField { 
+export interface TableColumnCreate {
+    name?: string;
+    description?: string;
+    presetId?: string;
+    priority?: number;
+    visible?: boolean;
+    categoryName?: string;
+    displayName?: string;
     sortable?: boolean;
     filterable?: boolean;
-    defaultTableColumnWidth?:number;
+    defaultTableColumnWidth?: number;
+    dynamicField?: boolean;
 }

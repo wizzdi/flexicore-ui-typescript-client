@@ -9,10 +9,10 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { CreatePreset } from './createPreset';
+import { BasicCreate } from '@flexicore/flexicore-client/dist/model/basicCreate';
 
 
-export interface CreateGridPreset extends CreatePreset { 
+export interface CreateGridPreset extends BasicCreate { 
     relatedClassCanonicalName?: string;
     dynamicExecutionId?:string;
     latMapping?:string;

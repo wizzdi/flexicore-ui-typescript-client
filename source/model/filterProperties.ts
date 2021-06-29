@@ -1,7 +1,5 @@
-import { Baseclass, Category, DynamicExecution } from "@flexicore/flexicore-client";
+import { Baseclass } from "@flexicore/flexicore-client";
 import { GridPreset } from "./gridPreset";
-import { UiField } from "./uiField";
-import { Preset } from "./preset";
 
 /**
  * REST API for Flexicore filtered by your access rights

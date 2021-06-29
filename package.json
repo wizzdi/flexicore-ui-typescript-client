@@ -1,6 +1,6 @@
 {
   "name": "@flexicore/flexicore-ui-client",
-  "version": "3.1.10",
+  "version": "3.1.11",
   "description": "This is a typescript client for flexicore-ui",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,6 +30,6 @@
     "zone.js": "^0.8.18"
   },
   "dependencies": {
-    "@flexicore/flexicore-client": "^2.0.8"
+    "@flexicore/flexicore-client": "^2.2.22"
   }
 }

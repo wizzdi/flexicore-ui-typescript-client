@@ -1,5 +1,5 @@
-import { Baseclass, DynamicExecution } from "@flexicore/flexicore-client";
-import { Preset } from "./preset";
+import { DynamicExecution } from "@flexicore/flexicore-client";
+import { Basic } from "@flexicore/flexicore-client/dist/model/basic";
 
 /**
  * REST API for Flexicore filtered by your access rights
@@ -14,7 +14,7 @@ import { Preset } from "./preset";
  */
 
 
-export interface GridPreset extends Preset { 
+export interface GridPreset extends Basic { 
     relatedClassCanonicalName?: string;
     dynamicExecution?:DynamicExecution;
     latMapping?:string;

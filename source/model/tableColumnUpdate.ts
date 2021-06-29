@@ -1,7 +1,3 @@
-import { Baseclass, Category } from "@flexicore/flexicore-client";
-import { GridPreset } from "./gridPreset";
-import { UiField } from "./uiField";
-import { CreateUiField } from "./createUiField";
 import { TableColumnCreate } from "./tableColumnCreate";
 
 /**

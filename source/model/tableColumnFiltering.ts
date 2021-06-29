@@ -1,7 +1,4 @@
-import { Baseclass, Category } from "@flexicore/flexicore-client";
-import { GridPreset } from "./gridPreset";
-import { UiField } from "./uiField";
-import { UiFieldFiltering } from "./uiFieldFiltering";
+import { FilteringInformationHolder } from "@flexicore/flexicore-client";
 
 /**
  * REST API for Flexicore filtered by your access rights
@@ -16,6 +13,6 @@ import { UiFieldFiltering } from "./uiFieldFiltering";
  */
 
 
-export interface TableColumnFiltering extends UiFieldFiltering { 
-  
+export interface TableColumnFiltering extends FilteringInformationHolder {
+    presetIds?: string[];
 }

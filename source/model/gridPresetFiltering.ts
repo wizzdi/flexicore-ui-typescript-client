@@ -1,5 +1,4 @@
-import { FilteringInformationHolder } from "@flexicore/flexicore-client";
-import { PresetFiltering } from "./presetFiltering";
+import { PresetFilter } from "@flexicore/flexicore-client";
 
 /**
  * REST API for Flexicore filtered by your access rights
@@ -14,5 +13,5 @@ import { PresetFiltering } from "./presetFiltering";
  */
 
 
-export interface GridPresetFiltering extends PresetFiltering {
+export interface GridPresetFiltering extends PresetFilter {
 }
