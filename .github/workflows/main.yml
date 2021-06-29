@@ -9,6 +9,10 @@ jobs:
         with:
           node-version: 10
       - run: npm install
+      - name: tsc compile
+        uses: iCrawl/action-tsc@v1
+        with:
+          project: source
       - run: npm test
       - uses: JS-DevTools/npm-publish@v1
         with:
