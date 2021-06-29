@@ -3,5 +3,5 @@ import { GridPreset } from "./gridPreset";
 export interface FilterProperties extends Baseclass {
     filterPath?: string;
     externalize?: boolean;
-    gridPreset?: string;
+    gridPreset?: GridPreset;
 }

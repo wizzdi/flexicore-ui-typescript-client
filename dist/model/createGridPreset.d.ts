@@ -1,5 +1,5 @@
-import { CreatePreset } from './createPreset';
-export interface CreateGridPreset extends CreatePreset {
+import { BasicCreate } from '@flexicore/flexicore-client/dist/model/basicCreate';
+export interface CreateGridPreset extends BasicCreate {
     relatedClassCanonicalName?: string;
     dynamicExecutionId?: string;
     latMapping?: string;

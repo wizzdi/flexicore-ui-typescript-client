@@ -9,12 +9,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FormService = void 0;
+exports.PresetToPresetService = void 0;
 const core_1 = require("@angular/core");
 const http_1 = require("@angular/common/http");
 const configuration_1 = require("../configuration");
 const flexicore_client_1 = require("@flexicore/flexicore-client");
-let FormService = class FormService {
+let PresetToPresetService = class PresetToPresetService {
     constructor(httpClient, basePath, configuration) {
         this.httpClient = httpClient;
         this.basePath = '/FlexiCore';
@@ -28,7 +28,7 @@ let FormService = class FormService {
             this.basePath = basePath || configuration.basePath || this.basePath;
         }
     }
-    createForm(body, authenticationKey, observe = 'body', reportProgress = false) {
+    getAllPresetToPresets(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
         if (authenticationKey !== undefined && authenticationKey !== null) {
             headers = headers.set('authenticationKey', String(authenticationKey));
@@ -47,14 +47,14 @@ let FormService = class FormService {
         if (httpContentTypeSelected != undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
-        return this.httpClient.post(`${this.basePath}/plugins/Forms/createForm`, body, {
+        return this.httpClient.post(`${this.basePath}/plugins/PresetToPresets/getAllPresetToPresets`, body, {
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
     }
-    copyForm(body, authenticationKey, observe = 'body', reportProgress = false) {
+    createPresetToPresets(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
         if (authenticationKey !== undefined && authenticationKey !== null) {
             headers = headers.set('authenticationKey', String(authenticationKey));
@@ -73,14 +73,14 @@ let FormService = class FormService {
         if (httpContentTypeSelected != undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
-        return this.httpClient.post(`${this.basePath}/plugins/Forms/copyForm`, body, {
+        return this.httpClient.post(`${this.basePath}/plugins/PresetToPresets/createPresetToPreset`, body, {
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
         }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
     }
-    getAllForms(body, authenticationKey, observe = 'body', reportProgress = false) {
+    updatePresetToPresets(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
         if (authenticationKey !== undefined && authenticationKey !== null) {
             headers = headers.set('authenticationKey', String(authenticationKey));
@@ -99,33 +99,7 @@ let FormService = class FormService {
         if (httpContentTypeSelected != undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
-        return this.httpClient.post(`${this.basePath}/plugins/Forms/getAllForms`, body, {
-            withCredentials: this.configuration.withCredentials,
-            headers: headers,
-            observe: observe,
-            reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
-    }
-    updateForm(body, authenticationKey, observe = 'body', reportProgress = false) {
-        let headers = this.defaultHeaders;
-        if (authenticationKey !== undefined && authenticationKey !== null) {
-            headers = headers.set('authenticationKey', String(authenticationKey));
-        }
-        let httpHeaderAccepts = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-        const consumes = [
-            'application/json'
-        ];
-        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected != undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-        return this.httpClient.put(`${this.basePath}/plugins/Forms/updateForm`, body, {
+        return this.httpClient.put(`${this.basePath}/plugins/PresetToPresets/updatePresetToPreset`, body, {
             withCredentials: this.configuration.withCredentials,
             headers: headers,
             observe: observe,
@@ -133,11 +107,11 @@ let FormService = class FormService {
         }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
     }
 };
-FormService = __decorate([
+PresetToPresetService = __decorate([
     core_1.Injectable(),
     __param(1, core_1.Optional()),
     __param(1, core_1.Inject(flexicore_client_1.BASE_PATH)),
     __param(2, core_1.Optional())
-], FormService);
-exports.FormService = FormService;
-//# sourceMappingURL=form.service.js.map
+], PresetToPresetService);
+exports.PresetToPresetService = PresetToPresetService;
+//# sourceMappingURL=presetToPresets.service.js.map

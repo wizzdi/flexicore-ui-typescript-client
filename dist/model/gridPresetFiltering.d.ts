@@ -1,3 +1,3 @@
-import { PresetFiltering } from "./presetFiltering";
-export interface GridPresetFiltering extends PresetFiltering {
+import { PresetFilter } from "@flexicore/flexicore-client";
+export interface GridPresetFiltering extends PresetFilter {
 }
