@@ -6,4 +6,5 @@ export interface PresetToPresetCreate extends BasicCreate {
     childPresetId?: string;
     parentPath?: string;
     childPath?: string;
+    ordinal?: number;
 }
