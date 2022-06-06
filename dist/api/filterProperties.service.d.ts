@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { FilterPropertiesCreate } from "../model/filterPropertiesCreate";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { FilterPropertiesFiltering } from "../model/filterPropertiesFiltering";
 import { FilterPropertiesUpdate } from "../model/filterPropertiesUpdate";
 export declare class FilterPropertiesService {

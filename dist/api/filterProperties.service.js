@@ -14,6 +14,7 @@ const core_1 = require("@angular/core");
 const http_1 = require("@angular/common/http");
 const configuration_1 = require("../configuration");
 const flexicore_client_1 = require("@flexicore/flexicore-client");
+const operators_1 = require("rxjs/operators");
 let FilterPropertiesService = class FilterPropertiesService {
     constructor(httpClient, basePath, configuration) {
         this.httpClient = httpClient;
@@ -52,7 +53,7 @@ let FilterPropertiesService = class FilterPropertiesService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     getAllFilterPropertiess(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -78,7 +79,7 @@ let FilterPropertiesService = class FilterPropertiesService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     updateFilterProperties(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -104,7 +105,7 @@ let FilterPropertiesService = class FilterPropertiesService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
 };
 FilterPropertiesService = __decorate([

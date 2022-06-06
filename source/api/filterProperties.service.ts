@@ -3,11 +3,11 @@ import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { BASE_PATH, PaginationResponse, FlexiCoreDecycle } from "@flexicore/flexicore-client";
 import { FilterPropertiesCreate } from "../model/filterPropertiesCreate";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { FilterProperties } from "../model/filterProperties";
 import { FilterPropertiesFiltering } from "../model/filterPropertiesFiltering";
 import { FilterPropertiesUpdate } from "../model/filterPropertiesUpdate";
-
+import { map } from 'rxjs/operators';
 @Injectable()
 export class FilterPropertiesService {
 
@@ -60,7 +60,7 @@ export class FilterPropertiesService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     
@@ -99,7 +99,7 @@ export class FilterPropertiesService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     public updateFilterProperties(body?: FilterPropertiesUpdate, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
@@ -137,7 +137,7 @@ export class FilterPropertiesService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
 }

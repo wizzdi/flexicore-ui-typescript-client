@@ -1,6 +1,6 @@
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { PresetToPresetCreate, PresetToPresetFiltering, PresetToPresetUpdate } from "../model/models";
 export declare class PresetToPresetService {
     protected httpClient: HttpClient;

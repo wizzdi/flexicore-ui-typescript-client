@@ -14,7 +14,7 @@ import { Inject, Injectable, Optional }                      from '@angular/core
 import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 import { CreateConfigurationPreset } from '../model/createConfigurationPreset';
 import { ConfigurationPreset } from '../model/configurationPreset';
@@ -25,6 +25,7 @@ import { Configuration }                                     from '../configurat
 import { ConfigurationPresetFiltering } from '../model/configurationPresetFiltering';
 import { PaginationResponse, FlexiCoreDecycle } from '@flexicore/flexicore-client';
 
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ConfigurationPresetsService {
@@ -104,7 +105,7 @@ export class ConfigurationPresetsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     /**
@@ -153,7 +154,7 @@ export class ConfigurationPresetsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     /**
@@ -202,7 +203,7 @@ export class ConfigurationPresetsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
 }

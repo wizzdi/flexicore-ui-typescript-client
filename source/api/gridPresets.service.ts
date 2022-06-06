@@ -3,12 +3,12 @@ import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { BASE_PATH, PaginationResponse, FlexiCoreDecycle } from "@flexicore/flexicore-client";
 import { CreateGridPreset } from "../model/createGridPreset";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { GridPreset } from "../model/gridPreset";
 import { GridPresetFiltering } from "../model/gridPresetFiltering";
 import { UpdateGridPreset } from "../model/models";
 import { CopyGridPreset } from "../model/copyGridPreset";
-
+import { map } from 'rxjs/operators';
 @Injectable()
 export class GridPresetsService {
 
@@ -61,7 +61,7 @@ export class GridPresetsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     public copyGridPreset(body?: CopyGridPreset, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
@@ -99,7 +99,7 @@ export class GridPresetsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     public getAllGridPresets(body?: GridPresetFiltering, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
@@ -137,7 +137,7 @@ export class GridPresetsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     public updateGridPreset(body?: UpdateGridPreset, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
@@ -175,7 +175,7 @@ export class GridPresetsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
 }

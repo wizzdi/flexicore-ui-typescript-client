@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { TableColumnCreate } from "../model/tableColumnCreate";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { TableColumnFiltering } from "../model/tableColumnFiltering";
 import { TableColumnUpdate } from "../model/tableColumnUpdate";
 export declare class TableColumnService {

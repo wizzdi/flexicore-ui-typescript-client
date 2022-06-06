@@ -3,11 +3,11 @@ import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { BASE_PATH, PaginationResponse, FlexiCoreDecycle } from "@flexicore/flexicore-client";
 import { TableColumnCreate } from "../model/tableColumnCreate";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { TableColumn } from "../model/tableColumn";
 import { TableColumnFiltering } from "../model/tableColumnFiltering";
 import { TableColumnUpdate } from "../model/tableColumnUpdate";
-
+import { map } from 'rxjs/operators';
 @Injectable()
 export class TableColumnService {
 
@@ -60,7 +60,7 @@ export class TableColumnService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     
@@ -99,7 +99,7 @@ export class TableColumnService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     public updateTableColumn(body?: TableColumnUpdate, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
@@ -137,7 +137,7 @@ export class TableColumnService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
 }

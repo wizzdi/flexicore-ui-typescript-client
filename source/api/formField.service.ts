@@ -3,11 +3,11 @@ import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { BASE_PATH, PaginationResponse, FlexiCoreDecycle } from "@flexicore/flexicore-client";
 import { FormFieldCreate } from "../model/formFieldCreate";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { FormField } from "../model/formField";
 import { FormFieldFiltering } from "../model/formFieldFiltering";
 import { FormFieldUpdate } from "../model/formFieldUpdate";
-
+import { map } from 'rxjs/operators';
 @Injectable()
 export class FormFieldService {
 
@@ -60,7 +60,7 @@ export class FormFieldService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     
@@ -99,7 +99,7 @@ export class FormFieldService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     public updateFormField(body?: FormFieldUpdate, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
@@ -137,7 +137,7 @@ export class FormFieldService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
 }

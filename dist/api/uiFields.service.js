@@ -15,11 +15,13 @@ const http_1 = require("@angular/common/http");
 const variables_1 = require("../variables");
 const configuration_1 = require("../configuration");
 const flexicore_client_1 = require("@flexicore/flexicore-client");
+const operators_1 = require("rxjs/operators");
 let UiFieldsService = class UiFieldsService {
     constructor(httpClient, basePath, configuration) {
         this.httpClient = httpClient;
         this.basePath = '/FlexiCore';
         this.defaultHeaders = new http_1.HttpHeaders();
+        this.defaultDeleteHeaders = new Headers();
         this.configuration = new configuration_1.Configuration();
         if (basePath) {
             this.basePath = basePath;
@@ -62,7 +64,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     getPreferredPresets(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -88,7 +90,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     getAllPresetToRole(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -114,7 +116,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     getAllPresetToTenant(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -140,7 +142,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     getAllPresetToUser(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -166,7 +168,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     linkPresetToTenant(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -192,7 +194,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     linkPresetToUser(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -218,7 +220,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     listAllUiFields(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -244,7 +246,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     updatePresetToRole(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -270,7 +272,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     updatePresetToTenant(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -296,7 +298,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
     updatePresetToUser(body, authenticationKey, observe = 'body', reportProgress = false) {
         let headers = this.defaultHeaders;
@@ -322,7 +324,7 @@ let UiFieldsService = class UiFieldsService {
             headers: headers,
             observe: observe,
             reportProgress: reportProgress
-        }).map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o));
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
 };
 UiFieldsService = __decorate([

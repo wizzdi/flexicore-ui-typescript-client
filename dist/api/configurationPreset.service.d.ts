@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { CreateConfigurationPreset } from '../model/createConfigurationPreset';
 import { ConfigurationPreset } from '../model/configurationPreset';
 import { UpdateConfigurationPreset } from '../model/updateConfigurationPreset';

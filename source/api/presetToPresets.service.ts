@@ -2,9 +2,9 @@ import { Injectable, Optional, Inject } from "@angular/core";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { BASE_PATH, PaginationResponse, FlexiCoreDecycle } from "@flexicore/flexicore-client";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { PresetToPresetCreate, PresetToPreset, PresetToPresetFiltering, PresetToPresetUpdate } from "../model/models";
-
+import { map } from 'rxjs/operators';
 @Injectable()
 export class PresetToPresetService {
 
@@ -54,7 +54,7 @@ export class PresetToPresetService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o => FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o => FlexiCoreDecycle.retrocycle(o)));
     }
 
     public createPresetToPresets(body?: PresetToPresetCreate, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
@@ -89,7 +89,7 @@ export class PresetToPresetService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o => FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o => FlexiCoreDecycle.retrocycle(o)));
     }
 
     public updatePresetToPresets(body?: PresetToPresetUpdate, authenticationKey?: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
@@ -124,7 +124,7 @@ export class PresetToPresetService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o => FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o => FlexiCoreDecycle.retrocycle(o)));
     }
 
 }

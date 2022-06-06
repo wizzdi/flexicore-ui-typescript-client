@@ -14,7 +14,7 @@ import { Inject, Injectable, Optional }                      from '@angular/core
 import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 
 
@@ -32,9 +32,8 @@ import { PaginationResponse, FlexiCoreDecycle } from '@flexicore/flexicore-clien
 import { PresetToUserFilter } from '../model/presetToUserFilter';
 import { PresetToRoleFilter } from '../model/presetToRoleFilter';
 import { PresetToRoleCreate, PresetToTenantCreate, PresetToUserCreate, PresetToRoleUpdate, PresetToTenantUpdate, PresetToUserUpdate, PresetToRoleContainer, PresetToTenantContainer, PresetToUserContainer, Preset, PreferedPresetRequest } from '../model/models';
-import { Http, Headers, URLSearchParams }                    from '@angular/http';
-import { RequestMethod, RequestOptions, RequestOptionsArgs } from '@angular/http';
-import { Response, ResponseContentType }                     from '@angular/http';
+import { map } from 'rxjs/operators';
+
 
 @Injectable()
 export class UiFieldsService {
@@ -44,7 +43,7 @@ export class UiFieldsService {
     public defaultDeleteHeaders: Headers = new Headers();
     public configuration = new Configuration();
 
-    constructor(protected http: Http, protected httpClient: HttpClient, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
+    constructor( protected httpClient: HttpClient, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
         if (basePath) {
             this.basePath = basePath;
         }
@@ -116,7 +115,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
      
@@ -166,7 +165,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
 
@@ -217,7 +216,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     public getAllPresetToTenant(body?: PresetToTenantFilter, authenticationKey?: string, observe?: 'body', reportProgress?: boolean): Observable<PaginationResponse<PresetToTenantContainer>>;
@@ -258,7 +257,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     public getAllPresetToUser(body?: PresetToUserFilter, authenticationKey?: string, observe?: 'body', reportProgress?: boolean): Observable<PaginationResponse<PresetToUserContainer>>;
@@ -299,7 +298,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     /**
@@ -348,7 +347,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     /**
@@ -396,7 +395,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     /**
@@ -445,7 +444,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
   
@@ -495,7 +494,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     /**
@@ -544,7 +543,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
     /**
@@ -593,60 +592,7 @@ export class UiFieldsService {
                 observe: observe,
                 reportProgress: reportProgress
             }
-        ).map(o=>FlexiCoreDecycle.retrocycle(o));
-    }
-
-    /**
-     * soft delete baseclass
-     * @summary softDelete
-     * @param id 
-     * @param authenticationkey The AuthenticationKey retrieved when sign-in into the system
-     */
-     public softDelete(id: string, authenticationkey?: string, extraHttpRequestParams?: any): Observable<{}> {
-        return this.softDeleteWithHttpInfo(id, authenticationkey, extraHttpRequestParams)
-            .map((response: Response) => {
-                if (response.status === 204) {
-                    return undefined;
-                } else {
-                    return  FlexiCoreDecycle.retrocycle(response.json()) || {};
-                }
-            });
-    }
-
-    public softDeleteWithHttpInfo(id: string, authenticationkey?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/plugins/UiFields/${id}'
-                    .replace('${' + 'id' + '}', String(id));
-
-        let queryParameters = new URLSearchParams();
-        let headers = new Headers(this.defaultDeleteHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-
-        // verify required parameter 'id' is not null or undefined
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling softDelete.');
-        }
-        if (authenticationkey !== undefined && authenticationkey !== null) {
-            headers.set('authenticationkey', String(authenticationkey));
-        }
-
-
-        // to determine the Accept header
-        let produces: string[] = [
-            'application/json'
-        ];
-
-            
-        let requestOptions: RequestOptionsArgs = new RequestOptions({
-            method: RequestMethod.Delete,
-            headers: headers,
-            search: queryParameters,
-            withCredentials:this.configuration.withCredentials
-        });
-        // https://github.com/swagger-api/swagger-codegen/issues/4037
-        if (extraHttpRequestParams) {
-            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
-        }
-
-        return this.http.request(path, requestOptions);
+        ).pipe(map(o=>FlexiCoreDecycle.retrocycle(o)));
     }
 
   

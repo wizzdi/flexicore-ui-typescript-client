@@ -5,4 +5,5 @@ export interface PresetToPreset extends Basic {
     childPresetId?: string;
     parentPath?: string;
     childPath?: string;
+    ordinal?: number;
 }

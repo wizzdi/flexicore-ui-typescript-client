@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { FormFieldCreate } from "../model/formFieldCreate";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { FormFieldFiltering } from "../model/formFieldFiltering";
 import { FormFieldUpdate } from "../model/formFieldUpdate";
 export declare class FormFieldService {

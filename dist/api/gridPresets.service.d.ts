@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { CreateGridPreset } from "../model/createGridPreset";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { GridPresetFiltering } from "../model/gridPresetFiltering";
 import { UpdateGridPreset } from "../model/models";
 import { CopyGridPreset } from "../model/copyGridPreset";

@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { PresetToRole } from '../model/presetToRole';
 import { PresetToTenant } from '../model/presetToTenant';
 import { PresetToUser } from '../model/presetToUser';
@@ -15,6 +15,7 @@ export declare class UiFieldsService {
     protected httpClient: HttpClient;
     protected basePath: string;
     defaultHeaders: HttpHeaders;
+    defaultDeleteHeaders: Headers;
     configuration: Configuration;
     constructor(httpClient: HttpClient, basePath: string, configuration: Configuration);
     private canConsumeForm;

@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Configuration } from "../configuration";
 import { FormCreate } from "../model/formCreate";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { FormFiltering } from "../model/formFiltering";
 import { FormUpdate } from "../model/formUpdate";
 import { FormCopy } from "../model/formCopy";
