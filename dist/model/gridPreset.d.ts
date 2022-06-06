@@ -1,5 +1,5 @@
 import { DynamicExecution } from "@flexicore/flexicore-client";
-import { Basic } from "@flexicore/flexicore-client/dist/model/basic";
+import { Basic } from "@flexicore/flexicore-client";
 export interface GridPreset extends Basic {
     relatedClassCanonicalName?: string;
     dynamicExecution?: DynamicExecution;

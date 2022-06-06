@@ -1,4 +1,4 @@
-import { Basic } from "@flexicore/flexicore-client/dist/model/basic";
+import { Basic } from "@flexicore/flexicore-client";
 export interface PresetToPreset extends Basic {
     idForCreate?: string;
     parentPresetId?: string;

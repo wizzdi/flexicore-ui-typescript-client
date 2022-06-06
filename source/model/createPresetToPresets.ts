@@ -1,4 +1,4 @@
-import { BasicCreate } from "@flexicore/flexicore-client/dist/model/basicCreate";
+import { BasicCreate } from "@flexicore/flexicore-client";
 
 export interface PresetToPresetCreate extends BasicCreate {
     idForCreate?: string;

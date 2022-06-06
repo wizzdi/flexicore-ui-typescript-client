@@ -1,4 +1,4 @@
-import { PaginationFilter } from "@flexicore/flexicore-client/dist/model/paginationFilter";
+import { PaginationFilter } from "@flexicore/flexicore-client";
 
 export interface PresetToPresetFiltering extends PaginationFilter {
     externalIds?: string[];
