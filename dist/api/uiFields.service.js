@@ -326,6 +326,35 @@ let UiFieldsService = class UiFieldsService {
             reportProgress: reportProgress
         }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
     }
+    softDelete(id, authenticationKey, observe = 'body', reportProgress = false) {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling softDelete.');
+        }
+        let headers = this.defaultHeaders;
+        if (authenticationKey !== undefined && authenticationKey !== null) {
+            headers = headers.set('authenticationKey', String(authenticationKey));
+        }
+        let httpHeaderAccepts = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+        return this.httpClient.delete(`${this.basePath}/plugins/UiFields/${id}`, {
+            withCredentials: this.configuration.withCredentials,
+            headers: headers,
+            observe: observe,
+            reportProgress: reportProgress
+        }).pipe(operators_1.map(o => flexicore_client_1.FlexiCoreDecycle.retrocycle(o)));
+    }
 };
 UiFieldsService = __decorate([
     core_1.Injectable(),

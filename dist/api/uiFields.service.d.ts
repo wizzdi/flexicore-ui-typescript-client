@@ -52,4 +52,7 @@ export declare class UiFieldsService {
     updatePresetToUser(body?: PresetToUserUpdate, authenticationKey?: string, observe?: 'body', reportProgress?: boolean): Observable<PresetToUser>;
     updatePresetToUser(body?: PresetToUserUpdate, authenticationKey?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PresetToUser>>;
     updatePresetToUser(body?: PresetToUserUpdate, authenticationKey?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PresetToUser>>;
+    softDelete(id?: string, authenticationKey?: string, observe?: 'body', reportProgress?: boolean): Observable<PresetToUser>;
+    softDelete(id?: string, authenticationKey?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PresetToUser>>;
+    softDelete(id?: string, authenticationKey?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PresetToUser>>;
 }
