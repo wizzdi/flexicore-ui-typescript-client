@@ -1,7 +1,7 @@
 import { InvokerUICreate } from "./invokerUiCreate";
 
 
-export interface InvokerFieldCreate extends InvokerUICreate {
+export interface FieldUICreate extends InvokerUICreate {
     mandatory?: boolean;
     methodId?: string;
     ordinal?: number;

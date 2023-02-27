@@ -1,8 +1,7 @@
-import { InvokerMethod } from "./invokerMethod";
 import { InvokerUIFiltering } from "./invokerUiFiltering";
 
 
-export interface InvokerFieldFiltering extends InvokerUIFiltering {
+export interface FieldUIFiltering extends InvokerUIFiltering {
     mandatory?: boolean[];
     methodIds?: string[];
     ordinalEnd?: number;

@@ -1,6 +1,6 @@
 import { InvokerUICreate } from "./invokerUiCreate";
 
 
-export interface InvokerMethodCreate extends InvokerUICreate {
+export interface MethodUICreate extends InvokerUICreate {
     invokerId?: string;
 }

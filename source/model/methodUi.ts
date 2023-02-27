@@ -1,6 +1,6 @@
 import { InvokerUI } from "./invokerUi";
 
 
-export interface InvokerMethod extends InvokerUI {
+export interface MethodUI extends InvokerUI {
     invoker?: InvokerUI;
 }
