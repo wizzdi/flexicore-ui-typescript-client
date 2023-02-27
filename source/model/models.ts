@@ -77,16 +77,16 @@ export * from './invokerUiUpdate';
 export * from './invokerUiFiltering';
 
 // Invoker Method models
-export * from './invokerMethod';
-export * from './invokerMethodCreate';
-export * from './invokerMethodUpdate';
-export * from './invokerMethodFiltering';
+export * from './methodUi';
+export * from './methodUiCreate';
+export * from './methodUiUpdate';
+export * from './methodUiFiltering';
 
 // Invoker Field models
-export * from './invokerField';
-export * from './invokerFieldCreate';
-export * from './invokerFieldUpdate';
-export * from './invokerFieldFiltering';
+export * from './fieldUi';
+export * from './fieldUiCreate';
+export * from './fieldUiUpdate';
+export * from './fieldUiFiltering';
 
 
 
