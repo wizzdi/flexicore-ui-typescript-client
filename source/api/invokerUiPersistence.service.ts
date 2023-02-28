@@ -61,7 +61,7 @@ export class InvokerUIPersistenceService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<InvokerUI>(`${this.basePath}/Invoker/createInvoker`,
+        return this.httpClient.post<InvokerUI>(`${this.basePath}/InvokerUI/createInvoker`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -100,7 +100,7 @@ export class InvokerUIPersistenceService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<PaginationResponse<InvokerUI>>(`${this.basePath}/Invoker/getAllInvokers`,
+        return this.httpClient.post<PaginationResponse<InvokerUI>>(`${this.basePath}/InvokerUI/getAllInvokers`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -139,7 +139,7 @@ export class InvokerUIPersistenceService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<InvokerUI>(`${this.basePath}/Invoker/updateInvoker`,
+        return this.httpClient.put<InvokerUI>(`${this.basePath}/InvokerUI/updateInvoker`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
